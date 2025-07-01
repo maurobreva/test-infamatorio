@@ -1,0 +1,126 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+    margin: 0; 
+    font-family: 'Inter', sans-serif; /* Fuente moderna y legible */
+    line-height: 1.6; /* Espaciado de línea para mejor legibilidad */
+    background-color: #f0f2f5; /* Fondo suave para la página */
+    color: #333; /* Color de texto principal */
+}
+
+/* Contenedor principal del contenido para asegurar desplazamiento */
+.contenido {
+    padding: 40px 20px; /* Espaciado interno */
+    margin-top: 80px; /* Ajusta este margen para que el contenido no quede oculto por la barra */
+    text-align: center; /* Centra el texto */
+    max-width: 800px; /* Ancho máximo para el contenido */
+    margin-left: auto; /* Centra el contenedor en la página */
+    margin-right: auto; /* Centra el contenedor en la página */
+    background-color: #ffffff; /* Fondo blanco para el contenido */
+    border-radius: 12px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.contenido h1 {
+    color: #2c3e50; /* Color de título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.contenido p {
+    margin-bottom: 15px; /* Espacio debajo de los párrafos */
+}
+
+/* Estilos de la barra de navegación normal (no flotante) */
+.barra-normal {
+    background-color: #3498db; /* Azul vibrante */
+    color: white; /* Texto blanco */
+    padding: 15px 20px; /* Espaciado interno */
+    text-align: center; /* Centra el contenido de la barra */
+    width: 100%; /* Ocupa todo el ancho */
+    position: relative; /* Posición normal en el flujo del documento */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    transition: all 0.3s ease-in-out; /* Transición suave para cambios de estilo */
+    border-bottom-left-radius: 8px; /* Esquinas inferiores redondeadas */
+    border-bottom-right-radius: 8px; /* Esquinas inferiores redondeadas */
+}
+
+.barra-normal nav a {
+    color: white; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    padding: 10px 18px; /* Espaciado de los enlaces */
+    margin: 0 8px; /* Margen entre enlaces */
+    border-radius: 8px; /* Esquinas redondeadas para los enlaces */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    font-weight: 500; /* Grosor de la fuente */
+}
+
+.barra-normal nav a:hover {
+    background-color: #2980b9; /* Color de fondo al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+/* Estilos para la barra cuando es "pegajosa" (flotante) */
+.barra-pegajosa {
+    position: fixed; /* Esto la hace flotar */
+    top: 0; /* La pega a la parte superior de la ventana */
+    left: 0; /* La pega al lado izquierdo de la ventana */
+    background-color: #2c3e50; /* Azul oscuro para la barra flotante */
+    padding: 10px 20px; /* Un poco menos de padding cuando flota */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    animation: slideDown 0.4s ease-out; /* Animación de entrada */
+    border-radius: 0; /* Sin esquinas redondeadas cuando está fija */
+}
+
+/* Animación para cuando la barra se vuelve pegajosa */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%); /* Empieza fuera de la vista superior */
+        opacity: 0; /* Empieza transparente */
+    }
+    to {
+        transform: translateY(0); /* Se desliza a su posición */
+        opacity: 1; /* Se vuelve completamente visible */
+    }
+}
+
+/* Contenido de relleno para hacer la página desplazable */
+.relleno {
+    height: 1500px; /* Altura considerable para permitir el desplazamiento */
+    background: linear-gradient(to bottom, #ecf0f1, #bdc3c7); /* Degradado de fondo */
+    display: flex; /* Para centrar el texto */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    font-size: 2em; /* Tamaño de fuente grande */
+    color: #555; /* Color de texto */
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.7); /* Sombra de texto */
+    border-radius: 12px; /* Esquinas redondeadas */
+    margin: 20px auto; /* Margen y centrado */
+    max-width: 800px; /* Ancho máximo */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .barra-normal nav a {
+        padding: 8px 12px; /* Menos padding en pantallas pequeñas */
+        margin: 0 4px; /* Menos margen entre enlaces */
+        font-size: 0.9em; /* Fuente más pequeña */
+    }
+    .contenido {
+        padding: 20px 15px; /* Menos padding en el contenido */
+    }
+    .relleno {
+        font-size: 1.5em; /* Fuente más pequeña para el relleno */
+    }
+}
+
+@media (max-width: 480px) {
+    .barra-normal nav {
+        display: flex; /* Usa flexbox para los enlaces */
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center; /* Centra los enlaces */
+    }
+    .barra-normal nav a {
+        margin: 5px 0; /* Más margen vertical entre enlaces */
+        width: 80%; /* Ancho de los enlaces */
+    }
